@@ -11,12 +11,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Функция создания пузыря ТОЛЬКО по бокам (лево 0-20%, право 80-100%)
     function createBubble() {
+        if (document.querySelectorAll('.bubble').length > 15) return;
+
         const bubble = document.createElement('div');
         const size = Math.floor(Math.random() * (55 - 20 + 1) + 20); // 20-55px
 
         const screenWidth = window.innerWidth;
-        const leftZoneMax = screenWidth * 0.2;   // 0-20% от левого края
-        const rightZoneMin = screenWidth * 0.8;  // 80-100% от левого края
+        const leftZoneMax = screenWidth * 0.1;   // 0-20% от левого края
+        const rightZoneMin = screenWidth * 0.9;  // 80-100% от левого края
 
         const isLeftSide = Math.random() < 0.5;   // 50% лево, 50% право
 

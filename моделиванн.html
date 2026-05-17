@@ -5,15 +5,259 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>Аква-Наследие | Антикварные ванны и горячие источники</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #1a1a1a;
+            font-family: 'Inter', sans-serif;
+            color: #f0ede8;
+            overflow-x: hidden;
+        }
+
+        #baths {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background: #1f1a17;
+            position: relative;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.2rem, 5vw, 3.8rem);
+            font-weight: 500;
+            text-align: center;
+            margin: 0 0 2rem 0;
+            color: #dbbc8c;
+            letter-spacing: 0.03em;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+        }
+
+        .cards-scroll {
+            display: flex;
+            gap: 1.5rem;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            padding: 1rem 3rem 2rem 3rem;
+            scroll-behavior: smooth;
+            scrollbar-width: thin;
+            scrollbar-color: #dbbc8c #2a211c;
+        }
+
+        .cards-scroll::-webkit-scrollbar {
+            height: 8px;
+        }
+        .cards-scroll::-webkit-scrollbar-track {
+            background: #2a211c;
+            border-radius: 4px;
+        }
+        .cards-scroll::-webkit-scrollbar-thumb {
+            background: #dbbc8c;
+            border-radius: 4px;
+        }
+
+        .card {
+            flex: 0 0 82vw;
+            height: 78vh;
+            border-radius: 2.5rem;
+            scroll-snap-align: start;
+            position: relative;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            align-items: flex-end;
+            justify-content: flex-start;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6), inset 0 0 0 1px rgba(255,255,255,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 30px 50px rgba(0,0,0,0.8), inset 0 0 0 2px rgba(212, 175, 55, 0.4);
+        }
+
+        .card-overlay {
+            width: 100%;
+            padding: 2.5rem 2.5rem 2.2rem 2.5rem;
+            background: linear-gradient(to top, rgba(0,0,0,0.85) 20%, rgba(0,0,0,0.4) 70%, transparent);
+            border-radius: 0 0 2.5rem 2.5rem;
+            color: #f5ede1;
+        }
+
+        .card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            font-weight: 600;
+            margin: 0 0 0.7rem 0;
+            color: #f3d79b;
+            letter-spacing: 0.02em;
+            text-shadow: 0 2px 6px black;
+        }
+
+        .card .desc {
+            font-size: 1.1rem;
+            font-weight: 300;
+            margin: 0 0 1.5rem 0;
+            max-width: 65ch;
+            line-height: 1.5;
+            opacity: 0.95;
+            text-shadow: 0 1px 4px black;
+        }
+
+        .card .pricing {
+            display: flex;
+            gap: 2.5rem;
+            flex-wrap: wrap;
+            font-size: 1rem;
+        }
+
+        .card .pricing span {
+            background: rgba(0,0,0,0.5);
+            backdrop-filter: blur(6px);
+            padding: 0.5rem 1.2rem;
+            border-radius: 2rem;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            color: #eedbba;
+            font-weight: 500;
+        }
+
+        .card .pricing strong {
+            color: #f3d79b;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .card {
+                flex: 0 0 88vw;
+                height: 75vh;
+                border-radius: 2rem;
+            }
+            .cards-scroll {
+                padding: 0.5rem 1.5rem 1.5rem 1.5rem;
+                gap: 1rem;
+            }
+            .card-overlay {
+                padding: 1.8rem 1.5rem 1.5rem 1.5rem;
+            }
+        }
+    </style>
 </head>
+<body>
     <section id="baths">
         <h2 class="section-title">Антикварные ванны ✦ Каталог</h2>
-        <div class="cards-grid">
-            <div class="card"><i class="fas fa-bath"></i><h3>Викторианская "Леди Мейбл"</h3><p>Чугун, 1885 г., латунные краны-лебеди. Эмаль восстановлена.</p><p><strong>Аренда: 150$ / сутки</strong><br>Продажа: 2200$</p></div>
-            <div class="card"><i class="fas fa-crown"></i><h3>Медная "Ар-деко"</h3><p>Франция, 1920 г., патинированная медь, уникальная форма.</p><p><strong>Аренда: 190$ / сутки</strong><br>Продажа: 3100$</p></div>
-            <div class="card"><i class="fas fa-gem"></i><h3>Мраморная "Карара"</h3><p>Итальянский мрамор, 1890 г., для истинной роскоши.</p><p><strong>Аренда: 240$ / сутки</strong><br>Продажа: 4900$</p></div>
+        <div class="cards-scroll" id="cardsContainer">
+            <!-- Карточки товаров (12 штук) -->
+            <div class="card" style="background-image: url('images/bath_1.png');">
+                <div class="card-overlay">
+                    <h3><i class="fas fa-bath" style="margin-right: 0.5rem;"></i>Викторианская «Леди Мейбл»</h3>
+                    <p class="desc">Чугун, 1885 г., латунные краны-лебеди. Эмаль восстановлена вручную.</p>
+                    <div class="pricing"><span>Аренда: <strong>150$ / сут</strong></span><span>Продажа: <strong>2200$</strong></span></div>
+                </div>
+            </div>
+            <div class="card" style="background-image: url('https://placehold.co/1000x1200/4e3c2c/f3d79b?text=Ар-деко');">
+                <div class="card-overlay">
+                    <h3><i class="fas fa-crown"></i> Медная «Ар-деко»</h3>
+                    <p class="desc">Франция, 1920 г., патинированная медь, уникальная геометричная форма.</p>
+                    <div class="pricing"><span>Аренда: <strong>190$ / сут</strong></span><span>Продажа: <strong>3100$</strong></span></div>
+                </div>
+            </div>
+            <div class="card" style="background-image: url('https://placehold.co/1000x1200/5a5042/f3d79b?text=Карара');">
+                <div class="card-overlay">
+                    <h3><i class="fas fa-gem"></i> Мраморная «Карара»</h3>
+                    <p class="desc">Итальянский мрамор, 1890 г., для истинной роскоши и вечности.</p>
+                    <div class="pricing"><span>Аренда: <strong>240$ / сут</strong></span><span>Продажа: <strong>4900$</strong></span></div>
+                </div>
+            </div>
+            <div class="card" style="background-image: url('https://placehold.co/1000x1200/5d4a34/f3d79b?text=Эдвардианская+Мелоди');">
+                <div class="card-overlay">
+                    <h3><i class="fas fa-feather-alt"></i> Эдвардианская «Мелоди»</h3>
+                    <p class="desc">Англия, 1902 г., двойные ручки из слоновой кости, глубокий эмалевый слой.</p>
+                    <div class="pricing"><span>Аренда: <strong>175$ / сут</strong></span><span>Продажа: <strong>2800$</strong></span></div>
+                </div>
+            </div>
+            <div class="card" style="background-image: url('https://placehold.co/1000x1200/3c2e23/f3d79b?text=Римская+Терма');">
+                <div class="card-overlay">
+                    <h3><i class="fas fa-water"></i> Римская «Терма»</h3>
+                    <p class="desc">Воссозданная модель I в. н.э., бронза и травертин, подогрев дровяной.</p>
+                    <div class="pricing"><span>Аренда: <strong>320$ / сут</strong></span><span>Продажа: <strong>5900$</strong></span></div>
+                </div>
+            </div>
+            <div class="card" style="background-image: url('https://placehold.co/1000x1200/6b5a46/f3d79b?text=Бель+Эпок');">
+                <div class="card-overlay">
+                    <h3><i class="fas fa-champagne-glasses"></i> Бель Эпок «Маргарита»</h3>
+                    <p class="desc">Париж, 1898 г., позолоченные ножки в виде лап льва, ручная роспись.</p>
+                    <div class="pricing"><span>Аренда: <strong>210$ / сут</strong></span><span>Продажа: <strong>3600$</strong></span></div>
+                </div>
+            </div>
+            <div class="card" style="background-image: url('https://placehold.co/1000x1200/4a3a2a/f3d79b?text=Георгианская+Симфония');">
+                <div class="card-overlay">
+                    <h3><i class="fas fa-music"></i> Георгианская «Симфония»</h3>
+                    <p class="desc">Дуб и олово, 1780 г., редкий овальный силуэт, реставрация 2023 г.</p>
+                    <div class="pricing"><span>Аренда: <strong>260$ / сут</strong></span><span>Продажа: <strong>4300$</strong></span></div>
+                </div>
+            </div>
+            <div class="card" style="background-image: url('https://placehold.co/1000x1200/5f4c38/f3d79b?text=Восточная+Сказка');">
+                <div class="card-overlay">
+                    <h3><i class="fas fa-moon"></i> Восточная «Сказка Шахерезады»</h3>
+                    <p class="desc">Марокко, 1910 г., кованая медь, эмаль с арабесками, глубокий резервуар.</p>
+                    <div class="pricing"><span>Аренда: <strong>195$ / сут</strong></span><span>Продажа: <strong>3400$</strong></span></div>
+                </div>
+            </div>
+            <div class="card" style="background-image: url('https://placehold.co/1000x1200/3e3329/f3d79b?text=Модерн+Ирис');">
+                <div class="card-overlay">
+                    <h3><i class="fas fa-seedling"></i> Модерн «Ирис»</h3>
+                    <p class="desc">Австрия, 1905 г., плавные линии, керамика с растительным орнаментом.</p>
+                    <div class="pricing"><span>Аренда: <strong>230$ / сут</strong></span><span>Продажа: <strong>4100$</strong></span></div>
+                </div>
+            </div>
+            <div class="card" style="background-image: url('https://placehold.co/1000x1200/514437/f3d79b?text=Колониальная+Индия');">
+                <div class="card-overlay">
+                    <h3><i class="fas fa-umbrella-beach"></i> Колониальная «Индия»</h3>
+                    <p class="desc">Тик и медь, 1870 г., привезена из Бомбея, массивные ножки-слоны.</p>
+                    <div class="pricing"><span>Аренда: <strong>185$ / сут</strong></span><span>Продажа: <strong>3700$</strong></span></div>
+                </div>
+            </div>
+            <div class="card" style="background-image: url('https://placehold.co/1000x1200/6a5d4f/f3d79b?text=Неоклассика+Аврора');">
+                <div class="card-overlay">
+                    <h3><i class="fas fa-star"></i> Неоклассика «Аврора»</h3>
+                    <p class="desc">Белый мрамор и бронза, 1830 г., римские колонны по бокам.</p>
+                    <div class="pricing"><span>Аренда: <strong>300$ / сут</strong></span><span>Продажа: <strong>5400$</strong></span></div>
+                </div>
+            </div>
+            <div class="card" style="background-image: url('https://placehold.co/1000x1200/4b3b2b/f3d79b?text=Японская+Офуро');">
+                <div class="card-overlay">
+                    <h3><i class="fas fa-torii-gate"></i> Японская «Офуро»</h3>
+                    <p class="desc">Криптомерия, 1895 г., традиционная глубокая купель, ручная работа.</p>
+                    <div class="pricing"><span>Аренда: <strong>165$ / сут</strong></span><span>Продажа: <strong>2900$</strong></span></div>
+                </div>
+            </div>
         </div>
-        <div style="text-align: center; margin-top: 2rem;"><a href="#" class="btn btn-outline">Посмотреть все 12 моделей →</a></div>
     </section>
+
+    <!-- Скрипт инвертированной прокрутки -->
+    <script>
+        (function() {
+            const container = document.getElementById('cardsContainer');
+            if (!container) return;
+
+            container.addEventListener('wheel', function(e) {
+                // Если прокрутка по горизонтали невозможна (достигнут край),
+                // всё равно предотвращаем вертикальное движение страницы,
+                // чтобы поведение было однозначным в области каталога.
+                e.preventDefault();
+                // Прокручиваем по горизонтали на величину вертикальной дельты
+                // deltaY — положительное число при прокрутке вниз (колёсиком от себя),
+                // значит контент должен двигаться вправо.
+                container.scrollLeft += e.deltaY;
+            }, { passive: false });
+        })();
+    </script>
+</body>
 </html>
